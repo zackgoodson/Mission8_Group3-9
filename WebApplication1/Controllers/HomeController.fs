@@ -7,14 +7,10 @@ open System.Threading.Tasks
 open Microsoft.AspNetCore.Mvc
 open Microsoft.Extensions.Logging
 
-type HomeController (logger : ILogger<HomeController>) =
+type HomeController () =
     inherit Controller()
 
     member this.Index () =
         this.View()
 
-    member this.Privacy () =
-        this.View()
 
-    member this.Error () =
-        this.View();
