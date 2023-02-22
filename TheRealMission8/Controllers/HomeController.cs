@@ -1,42 +1,44 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using TheRealMission8.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using TheRealMission8.Models;
 
 namespace TheRealMission8.Controllers
 {
-    private TaskContext _taskContext { get; set; }
+
     
     public class HomeController : Controller
     {
+        private TaskResponse taskContext { get; set; }
         public HomeController(TaskContext tasksub)
-
-        public HomeController()
         {
-            _taskContext = tasksub;
+            taskContext = tasksub;
         }
         
-            public IActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult Quadrants()
+        public IActionResult Quadrants ()
         {
-            var quad = _taskContext.Responses
+            var quad = taskContext.Responses
                     .Include(x => x.Category)
                     .ToList();
+
             return View(quad);
         }
         [HttpGet]
         public IActionResult Task ()
         {
-            ViewBag.Categories = _taskContext.ToList();
+            ViewBag.Categories = taskContext.ToList();
+
             return View();
         }
         [HttpPost]
@@ -44,51 +46,55 @@ namespace TheRealMission8.Controllers
         {
             if (ModelState.IsValid)
             {
-                _taskContext.Add(tr);
-                _taskContext.SaveChanges();
+                taskContext.Add(tr);
+                taskContext.SaveChanges();
+
                 return View("Quadrants", tr);
             }
             else
             {
-                ViewBag.Categories = _taskContext.Categories.ToList();
-                return View(tr)
+                ViewBag.Categories = taskContext.Categories.ToList();
+
+                return View(tr);
             }
         }
     
         [HttpGet]
         public IActionResult Edit (int TaskId)
         {
-            ViewBag.Categories = _taskContext.Categoris.ToList();
-            var task = _taskContext.Responses.Single(x => x.TaskId == TaskId);
+            ViewBag.Categories = taskContext.Categories.ToList();
+            var task = taskContext.Responses.Single(x => x.TaskId == TaskId);
+
+            return View("Task", task);
         }
         [HttpPost]
-        public IActionResult Edit(update)
+        public IActionResult Edit (update)
         {
             if (ModelState.IsValid)
             {
-                _taskContext.Update(update);
-                _taskContext.SaveChanges();
+                taskContext.Update(update);
+                taskContext.SaveChanges();
 
                 return RedirectToAction("Quadrants");
             }
             else
             {
-                ViewBag.Categories = _taskContext.Categories.ToList();
+                ViewBag.Categories = taskContext.Categories.ToList();
                 return View("Task", update);
             }
         }
         [HttpGet]
         public IActionResult Delete(int TaskId)
         {
-            var movie = _taskContext.Responses.Single(x => x.MovieId == TaskId);
+            var movie = taskContext.Responses.Single(x => x.MovieId == TaskId);
 
             return View(movie);
         }
         [HttpPost]
         public IActionResult Delete(TaskResponse tr)
         {
-            _taskContext.Responses.Remove(tr);
-            _taskContext.SaveChanges();
+            taskContext.Responses.Remove(tr);
+            taskContext.SaveChanges();
 
             return RedirectToAction("Quadrants");
         }
