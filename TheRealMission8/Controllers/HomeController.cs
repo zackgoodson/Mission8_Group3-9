@@ -10,19 +10,21 @@ using TheRealMission8.Models;
 namespace TheRealMission8.Controllers
 {
     private TaskContext _taskContext { get; set; }
+    
     public class HomeController : Controller
     {
-
-
         public HomeController(TaskContext tasksub)
+
+        public HomeController()
         {
             _taskContext = tasksub;
         }
-
-        public IActionResult Index()
+        
+            public IActionResult Index()
         {
             return View();
         }
+
         [HttpGet]
         public IActionResult Quadrants()
         {
@@ -90,8 +92,5 @@ namespace TheRealMission8.Controllers
 
             return RedirectToAction("Quadrants");
         }
-
-
-
     }
 }
