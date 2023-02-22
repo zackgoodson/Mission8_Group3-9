@@ -14,14 +14,12 @@ namespace TheRealMission8.Controllers
 
         public HomeController()
         {
-            
-        }
 
-        public IActionResult Index()
+        }
+        
+            public IActionResult Index()
         {
             return View();
         }
-
-        
     }
 }
