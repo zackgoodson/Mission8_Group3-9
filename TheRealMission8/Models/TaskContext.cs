@@ -5,7 +5,7 @@ namespace TheRealMission8.Models
     public class TaskContext : DbContext
     {
         //constructor
-        public TaskContext(DbContextOptions<TaskContext> tasks) : base(tasks)
+        public TaskContext(DbContextOptions<TaskContext> options) : base(options)
         {
             //leave blank for  now
         }
@@ -51,7 +51,7 @@ namespace TheRealMission8.Models
                 },
                 new TaskResponse
                 {
-                    TaskID = 1,
+                    TaskID = 2,
                     Task = "Mission 9",
                     Due = "2/29/2023",
                     Quadrant = 1,
@@ -60,7 +60,7 @@ namespace TheRealMission8.Models
                 },
                 new TaskResponse
                 {
-                    TaskID = 1,
+                    TaskID = 3,
                     Task = "Mission 7",
                     Due = "2/21/2023",
                     Quadrant = 1,
