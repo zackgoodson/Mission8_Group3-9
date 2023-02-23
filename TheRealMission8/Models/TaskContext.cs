@@ -11,7 +11,33 @@ namespace TheRealMission8.Models
         }
 
         public DbSet<TaskResponse> Responses { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder mb)
+        {
+
+            mb.Entity<Category>().HasData(
+                new Category
+                {
+                    CategoryID = 1,
+                    CategoryName = "Home"
+                },
+                new Category
+                {
+                    CategoryID = 2,
+                    CategoryName = "Work"
+                },
+                new Category
+                {
+                    CategoryID = 3,
+                    CategoryName = "School"
+                },
+                new Category
+                {
+                    CategoryID = 4,
+                    CategoryName = "Church"
+                });
+         }
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<TaskResponse>().HasData(
@@ -22,8 +48,8 @@ namespace TheRealMission8.Models
                     Task = "Mission 8",
                     Due = "2/24/2023",
                     Quadrant = 1,
-                    CategoryID = 1,
-                    Completed = false
+                    Completed = false,
+                    CategoryID= 3
                 },
                 new TaskResponse
                 {
@@ -31,8 +57,8 @@ namespace TheRealMission8.Models
                     Task = "Mission 9",
                     Due = "2/29/2023",
                     Quadrant = 1,
-                    CategoryID = 1,
-                    Completed = false
+                    Completed = false,
+                    CategoryID = 3
                 },
                 new TaskResponse
                 {
@@ -40,11 +66,10 @@ namespace TheRealMission8.Models
                     Task = "Mission 7",
                     Due = "2/21/2023",
                     Quadrant = 1,
-                    CategoryID = 1,
-                    Completed = true
+                    Completed = true,
+                    CategoryID= 3
                 }
              );
         }
-
     }
 }
