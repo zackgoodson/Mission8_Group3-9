@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "New Task Entry";
+}
+
+@model TheRealMission8.Models.TaskResponse 
+<h1>Enter New Task</h1>
+
+<div>
+    <form>
+        <label asp-for="Task">Task Name:</label>
+        <input asp-for="Task" required /><br />
+
+        <label asp-for="Due">Task Due Date(mm/dd):</label>
+        <input asp-for="Due" /><br />
+
+        <label asp-for="Quadrant">What quadrant is this task in:</label>
+        <input asp-for="Quadrant" required max="4" min="1" type="number"/><br />
+
+        <label asp-for="Category">Category</label>
+        <select asp-for="Category">
+            <option value="Default">Please pick a category</option>
+            <option value="Home">Home</option>
+            <option value="School">School</option>
+            <option value="Work">Work</option>
+            <option value="Church">Church</option>
+        </select><br />
+
+        <label asp-for="Completed">This task has been completed:</label>
+        <select asp-for="Completed">
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select><br />
+
+        <button type="submit">Add Task</button>
+    </form>
+</div>
