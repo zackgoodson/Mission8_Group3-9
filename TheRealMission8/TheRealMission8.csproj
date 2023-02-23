@@ -17,8 +17,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
 
-    <Folder Include="Models\" />
-
   </ItemGroup>
 
 </Project>

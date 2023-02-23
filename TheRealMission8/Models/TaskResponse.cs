@@ -17,7 +17,11 @@ namespace TheRealMission8.Models
         [Required]
         public int Quadrant { get; set; }
         public bool Completed { get; set; }
+
+
+        //Build FK here
+        [Required(ErrorMessage = "Category is required.")]
         public int CategoryID { get; set; }
-        public string Category { get; set; }
+        public Category Category { get; set; }
     }
 }
