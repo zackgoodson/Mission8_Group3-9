@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace TheRealMission8.Controllers
 {
 
@@ -41,6 +42,7 @@ namespace TheRealMission8.Controllers
 
             return View();
         }
+
         [HttpPost]
         public IActionResult Task (TaskResponse tr)
         {
