@@ -15,7 +15,7 @@ namespace TheRealMission8.Controllers
     
     public class HomeController : Controller
     {
-        private TaskResponse taskContext { get; set; }
+        private TaskContext taskContext { get; set; }
         public HomeController(TaskContext tasksub)
         {
             taskContext = tasksub;
@@ -38,7 +38,7 @@ namespace TheRealMission8.Controllers
         [HttpGet]
         public IActionResult Task ()
         {
-            ViewBag.Categories = taskContext.ToList();
+            ViewBag.Categories = taskContext.Categories.ToList();
 
             return View();
         }
@@ -65,12 +65,12 @@ namespace TheRealMission8.Controllers
         public IActionResult Edit (int TaskId)
         {
             ViewBag.Categories = taskContext.Categories.ToList();
-            var task = taskContext.Responses.Single(x => x.TaskId == TaskId);
+            var task = taskContext.Responses.Single(x => x.TaskID == TaskId);
 
             return View("Task", task);
         }
         [HttpPost]
-        public IActionResult Edit (update)
+        public IActionResult Edit (TaskResponse update)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace TheRealMission8.Controllers
         [HttpGet]
         public IActionResult Delete(int TaskId)
         {
-            var movie = taskContext.Responses.Single(x => x.MovieId == TaskId);
+            var movie = taskContext.Responses.Single(x => x.TaskID == TaskId);
 
             return View(movie);
         }
