@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using TheRealMission8.Models;
+//using TheRealMission8.Models;
 
 namespace TheRealMission8.Controllers
 {
@@ -22,6 +22,9 @@ namespace TheRealMission8.Controllers
             return View();
         }
 
-        
+        public IActionResult Quadrants()
+        {
+            return View();
+        }
     }
 }
