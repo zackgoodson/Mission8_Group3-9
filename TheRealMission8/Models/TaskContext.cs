@@ -15,7 +15,6 @@ namespace TheRealMission8.Models
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
-
             mb.Entity<Category>().HasData(
                 new Category
                 {
@@ -37,9 +36,8 @@ namespace TheRealMission8.Models
                     CategoryID = 4,
                     CategoryName = "Church"
                 });
-         }
-        protected override void OnModelCreating(ModelBuilder mb)
-        {
+
+
             mb.Entity<TaskResponse>().HasData(
 
                 new TaskResponse
