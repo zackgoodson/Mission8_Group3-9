@@ -22,9 +22,6 @@ namespace TheRealMission8.Controllers
             return View();
         }
 
-        public IActionResult Quadrants()
-        {
-            return View();
-        }
+
     }
 }
