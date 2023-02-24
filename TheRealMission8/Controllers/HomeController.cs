@@ -52,7 +52,7 @@ namespace TheRealMission8.Controllers
                 taskContext.Add(tr);
                 taskContext.SaveChanges();
 
-                return View("Quadrants");
+                return RedirectToAction("Quadrants");
             }
             else
             {

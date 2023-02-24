@@ -13,18 +13,64 @@
             <h6>Quadrant 1</h6>
             @foreach (var x in Model)
             {
-                <ul>
-                    <li>@x.Task</li>
-                <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></li>
-                <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></li>
-                </ul>
+                @if (x.Quadrant == 1)
+                {
+                    <ul>
+                        <li>@x.Task</li>
+                        <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></li>
+                        <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></li>
+                    </ul>
+                }
+
             }
         </div>
-        <div class="col"><h6>Quadrant 2</h6></div>
+        <div class="col">
+            <h6>Quadrant 2</h6>
+            @foreach (var x in Model)
+            {
+                @if (x.Quadrant == 2)
+                {
+                    <ul>
+                        <li>@x.Task</li>
+                        <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></li>
+                        <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></li>
+                    </ul>
+                }
+
+            }
+        </div>
     </div>
     <div class="row">
         <div class="col-4"><h4>Not Important</h4></div>
-        <div class="col"><h6>Quadrant 3</h6></div>
-        <div class="col"><h6>Quadrant 4</h6></div>
+        <div class="col">
+            <h6>Quadrant 3</h6>
+            @foreach (var x in Model)
+            {
+                @if (x.Quadrant == 3)
+                {
+                    <ul>
+                        <li>@x.Task</li>
+                        <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></li>
+                        <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></li>
+                    </ul>
+                }
+
+            }
+        </div>
+        <div class="col">
+            <h6>Quadrant 4</h6>
+            @foreach (var x in Model)
+            {
+                @if (x.Quadrant == 4)
+                {
+                    <ul>
+                        <li>@x.Task</li>
+                        <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></li>
+                        <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></li>
+                    </ul>
+                }
+
+            }
+        </div>
     </div>
 </div>
