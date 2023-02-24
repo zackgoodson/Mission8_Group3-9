@@ -88,9 +88,9 @@ namespace TheRealMission8.Controllers
         [HttpGet]
         public IActionResult Delete(int TaskId)
         {
-            var movie = taskContext.Responses.Single(x => x.TaskID == TaskId);
+            var task = taskContext.Responses.Single(x => x.TaskID == TaskId);
 
-            return View(movie);
+            return View(task);
         }
         [HttpPost]
         public IActionResult Delete(TaskResponse tr)
