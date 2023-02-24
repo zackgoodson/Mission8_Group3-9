@@ -17,6 +17,7 @@ namespace TheRealMission8.Models
         [Required]
         public int Quadrant { get; set; }
         public bool Completed { get; set; }
+        //Creating foreign key relationship
         public int CategoryID { get; set; }
         public Category Category { get; set; }
     }
