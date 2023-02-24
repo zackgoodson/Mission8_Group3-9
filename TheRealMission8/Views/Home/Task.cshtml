@@ -2,11 +2,12 @@
     ViewData["Title"] = "New Task Entry";
 }
 
-@model TheRealMission8.Models.TaskResponse 
+@model TheRealMission8.Models.TaskResponse
+
 <h1>Enter New Task</h1>
 
 <div>
-    <form>
+    <form method="post">
         <label asp-for="Task">Task Name:</label>
         <input asp-for="Task" required /><br />
 

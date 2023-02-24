@@ -51,7 +51,7 @@ namespace TheRealMission8.Controllers
                 taskContext.Add(tr);
                 taskContext.SaveChanges();
 
-                return View("Quadrants", tr);
+                return View("Quadrants");
             }
             else
             {
