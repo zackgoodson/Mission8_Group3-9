@@ -31,6 +31,7 @@ namespace TheRealMission8.Controllers
         {
             var quad = taskContext.Responses
                     .Include(x => x.Category)
+                    .Where(x => x.Completed == false)
                     .ToList();
 
             return View(quad);
