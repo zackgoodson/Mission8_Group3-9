@@ -1,4 +1,9 @@
 ﻿
+@{
+    ViewData["Title"] = "Quadrants";
+}
+
+
 @model List<TaskResponse>
 
 <div class="container">
@@ -13,12 +18,14 @@
             <h6>Quadrant 1</h6>
             @foreach (var x in Model)
             {
-                @if (x.Quadrant == 1)
+
+                @if (x.Quadrant == 1) 
                 {
                     <ul>
                         <li>@x.Task</li>
                         <li><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskID">Edit</a></li>
                         <li><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskID">Delete</a></li>
+
                     </ul>
                 }
 
