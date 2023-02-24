@@ -30,12 +30,14 @@ namespace TheRealMission8.Controllers
         public IActionResult Quadrants ()
         {
             var quad = taskContext.Responses
-                    .Include(x => x.Category)
-                    .Where(x => x.Completed == false)
+                    .Include(x => x.Category) 
+                    .Where(x => x.Completed == false) // Filters to only output tasks that are not yet complete
                     .ToList();
 
             return View(quad);
         }
+
+        // Returns Task page to allow for a new task to be inputted
         [HttpGet]
         public IActionResult Task ()
         {
@@ -44,6 +46,7 @@ namespace TheRealMission8.Controllers
             return View();
         }
 
+        // For submitting a new task
         [HttpPost]
         public IActionResult Task (TaskResponse tr)
         {
@@ -62,6 +65,7 @@ namespace TheRealMission8.Controllers
             }
         }
     
+
         [HttpGet]
         public IActionResult Edit (int TaskId)
         {
@@ -72,7 +76,8 @@ namespace TheRealMission8.Controllers
         }
         [HttpPost]
         public IActionResult Edit (TaskResponse update)
-        {
+        {   
+            // Checks to make sure edits are in-line with form requirements, else returns the same page 
             if (ModelState.IsValid)
             {
                 taskContext.Update(update);
@@ -86,6 +91,8 @@ namespace TheRealMission8.Controllers
                 return View("Task", update);
             }
         }
+
+        // Gets delete page to confirm the user really wants to delete the task
         [HttpGet]
         public IActionResult Delete(int TaskId)
         {
@@ -93,6 +100,8 @@ namespace TheRealMission8.Controllers
 
             return View(task);
         }
+
+        // Removes the task from the database
         [HttpPost]
         public IActionResult Delete(TaskResponse tr)
         {
